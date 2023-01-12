@@ -1,17 +1,31 @@
-20:51:15 **** Incremental Build of configuration Debug for project GPIO ****
+22:39:27 **** Incremental Build of configuration Debug for project GPIO ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:93:33: warning: initialization of 'volatile unsigned int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   93 |   volatile unsigned int * reg = 0x40021018;
+      |                                 ^~~~~~~~~~
+../Core/Src/main.c:98:34: warning: initialization of 'volatile unsigned int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   98 |   volatile unsigned int * reg2 = 0x40011004;
+      |                                  ^~~~~~~~~~
+../Core/Src/main.c:114:34: warning: initialization of 'volatile unsigned int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  114 |   volatile unsigned int * reg3 = 0x40011010;  // = GPIO_LED_GPIO_Port ( = GPIOC )
+      |                                  ^~~~~~~~~~
+At top level:
+../Core/Src/main.c:197:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  197 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
 arm-none-eabi-gcc -o "GPIO.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\gowor\Documents\embedded-study\GPIO\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GPIO.elf
  
 arm-none-eabi-size   GPIO.elf 
 arm-none-eabi-objdump -h -S  GPIO.elf  > "GPIO.list"
    text	   data	    bss	    dec	    hex	filename
-   4700	     20	   1572	   6292	   1894	GPIO.elf
+   3692	     20	   1572	   5284	   14a4	GPIO.elf
 Finished building: default.size.stdout
  
 Finished building: GPIO.list
  
 
-20:51:15 Build Finished. 0 errors, 0 warnings. (took 839ms)
+22:39:27 Build Finished. 0 errors, 4 warnings. (took 845ms)
 

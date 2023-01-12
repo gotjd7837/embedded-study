@@ -83,49 +83,15 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-
-  //MX_GPIO_Init();
-
+  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
-  // 목적 : HAL 드라이버를 사용하지 않고 LED 제어
-
-  volatile unsigned int * reg = 0x40021018;
-  *reg |= 16;
-  // MX_GPIO_Init()의  __HAL_RCC_GPIOC_CLK_ENABLE(); 와 같은 동작
-  // 클럭 enable
-
-  volatile unsigned int * reg2 = 0x40011004;
-  *reg2 = (*reg2 & ~(15UL << 20U)) | (3U << 20U);
-  /*
-  MX_GPIO_Init()의 아래의 코드와 같은 동작
-
-  GPIO_InitStruct.Pin = GPIO_LED_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  HAL_GPIO_Init(GPIO_LED_GPIO_Port, &GPIO_InitStruct);
-  */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  volatile unsigned int * reg3 = 0x40011010;  // = GPIO_LED_GPIO_Port ( = GPIOC )
   while (1)
   {
-
-
-	  *reg3 = 0x2000;
-	  HAL_Delay(100);
-	  *reg3 = (0x2000 <<16);
-	  HAL_Delay(100);
-
-	  // MX_GPIO_Init()의 HAL_GPIO_WritePin(GPIO_LED_GPIO_Port, GPIO_LED_Pin, GPIO_PIN_SET);
-	  // {= *(0x40011000) = 0x2000 (led on, pin HIGH) }
-	  // { = *(0x40011000) = (0x2000 << 16) (led off, pin LOW)}
-
-
 
 	  /*
 	  HAL_GPIO_WritePin(GPIO_LED_GPIO_Port, GPIO_LED_Pin, 1);
@@ -133,7 +99,8 @@ int main(void)
 	  HAL_GPIO_WritePin(GPIO_LED_GPIO_Port, GPIO_LED_Pin, 0);
 	  HAL_Delay(100);
 	  */
-	  //led 깜빡 깜빡
+	  //led Delay 1ms
+	  //울랄랄ㄹ라 안녕하세요
 
 	  /*
 	  if(!HAL_GPIO_ReadPin(GPIO_SW_GPIO_Port, GPIO_SW_Pin)){
@@ -144,7 +111,7 @@ int main(void)
 	  }
 	  HAL_Delay(100);
 	  */
-	  //Pull-up SW, LED 제어
+	  //Pull-up SW, LED
 
     /* USER CODE END WHILE */
 

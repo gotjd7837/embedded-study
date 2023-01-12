@@ -111,7 +111,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  volatile unsigned int * reg3 = 0x40011010;  // = GPIO_LED_GPIO_Port ( = GPIOC )
+  volatile unsigned int * reg3 = 0x40011000;  // = GPIO_LED_GPIO_Port ( = GPIOC )
   while (1)
   {
 
