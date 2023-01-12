@@ -104,7 +104,6 @@ int main(void)
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-
   HAL_GPIO_Init(GPIO_LED_GPIO_Port, &GPIO_InitStruct);
   */
 
@@ -112,7 +111,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  volatile unsigned int * reg3 = 0x40011010;  // = GPIO_LED_GPIO_Port->BSRR  (GPIOC->BSRR), (BSRR은 Port bit set/reset register)
+  volatile unsigned int * reg3 = 0x40011010;  // = GPIO_LED_GPIO_Port ( = GPIOC )
   while (1)
   {
 

@@ -10,4 +10,14 @@
 		<item key="size.width" value="465"/>
 		<item key="size.height" value="180"/>
 	</section>
+	<section name="PDOMSearchPage">
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
+		<list key="previousPatterns">
+			<item value="0x40011010"/>
+			<item value="GPIO_TypeDef*"/>
+			<item value="GPIO_TypeDef"/>
+			<item value="GPIOC_BASE"/>
+		</list>
+	</section>
 </section>
